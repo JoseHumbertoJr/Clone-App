@@ -1,11 +1,11 @@
 
 import { ScrollView } from 'react-native';
-import ERequest from './Screens/Erequest/eRequest';
+import SpeedAlert from './Screens/SpeedAlert/speedAlert';
 
 export default function VehicleScreen() {
   return (
     <ScrollView style={{ flex: 1 }}>
-      <ERequest/>
+      <SpeedAlert/>
     </ScrollView>
   );
 }
