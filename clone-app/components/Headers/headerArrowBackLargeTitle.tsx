@@ -1,5 +1,6 @@
 import ArrowBack from '@/assets/images/icons/arrow_back';
 import IconInfo from '@/assets/images/icons/info';
+import { typographyStyles } from '@/constants/theme/typographyStyles';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -15,7 +16,7 @@ export function HeaderArrowLargeTitle({ title }: HeaderText) {
         <div style={styles.iconInfo}><IconInfo size='24'/></div>
       </div>
       <div style={styles.titleDiv}>
-        <Text style={styles.titleHeader}>{title}</Text>
+        <Text style={[styles.titleHeader, typographyStyles.headlineSmall]}>{title}</Text>
       </div>
     </View>
   );

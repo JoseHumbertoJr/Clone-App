@@ -1,22 +1,17 @@
-import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { useFonts } from 'expo-font';
+import { Slot } from 'expo-router';
 
+export default function Layout() {
+  const [loaded] = useFonts({
+    'ToyotaType-Light': require('../assets/fonts/ToyotaType-Light.ttf'),
+    'ToyotaType-Regular': require('../assets/fonts/ToyotaType-Regular.ttf'),
+    'ToyotaType-Bold': require('../assets/fonts/ToyotaType-Bold.ttf'),
+    'ToyotaType-Semibold': require('../assets/fonts/ToyotaType-Semibold.ttf'),
+    'ToyotaType-book': require('../assets/fonts/ToyotaType-Book.ttf'),
+    'ToyotaType-Black': require('../assets/fonts/ToyotaType-Black.ttf'),
+  });
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+  if (!loaded) return null;
 
-export default function RootLayout() {
-
-  return (
-    <ThemeProvider value={DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+  return <Slot />;
 }
